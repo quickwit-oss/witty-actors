@@ -14,15 +14,17 @@
     async-trait = "0.1.68"
     flume       = "0.10.14"
     futures     = "0.3.28"
+    prometheus  = "0.13.3"
     serde       = { version = "1.0.163", features = ["derive"] }
     serde_json  = "1.0.96"
     thiserror   = "1.0.40"
     tokio       = { version = "1.28.2", features = ["sync", "rt", "time", "macros"] }
     tracing     = "0.1.37"
+    rand        = "0.8.5"
+http = "0.2.9"
 
 [dev-dependencies]
     criterion = "0.5.1"
-    rand      = "0.8.5"
 
 
     # quickwit-common = { workspace = true }

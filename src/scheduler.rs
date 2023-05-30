@@ -397,7 +397,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_scheduler_advance_time_fast_forward_initialize() {
-        // quickwit_common::setup_logging_for_tests();
+        // crate::quickwit_common::setup_logging_for_tests();
         let count: Arc<AtomicUsize> = Default::default();
         let simple_actor = ClockActor {
             count: count.clone(),
@@ -413,7 +413,7 @@ mod tests {
     #[tokio::test]
     async fn test_scheduler_advance_time_fast_forward_scheduled_message() {
         let start = Instant::now();
-        // quickwit_common::setup_logging_for_tests();
+        // crate::quickwit_common::setup_logging_for_tests();
         let count: Arc<AtomicUsize> = Default::default();
         let simple_actor = ClockActor {
             count: count.clone(),

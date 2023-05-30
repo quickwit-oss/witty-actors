@@ -29,7 +29,9 @@
 
 use std::fmt;
 
-use quickwit_proto::{ServiceError, ServiceErrorCode};
+mod quickwit_common;
+
+use crate::quickwit_common::proto::{ServiceError, ServiceErrorCode};
 use tokio::time::Duration;
 mod actor;
 mod actor_context;
@@ -52,11 +54,11 @@ pub use scheduler::{start_scheduler, SchedulerClient};
 pub(crate) mod tests;
 mod universe;
 
+use crate::quickwit_common::KillSwitch;
 pub use actor::{Actor, ActorExitStatus, DeferableReplyHandler, Handler};
 pub use actor_handle::{ActorHandle, Health, Healthz, Supervisable};
 pub use command::Command;
 pub use observation::{Observation, ObservationType};
-use quickwit_common::KillSwitch;
 pub use spawn_builder::SpawnContext;
 use thiserror::Error;
 pub use universe::Universe;

@@ -130,7 +130,7 @@ impl Handler<AddPeer> for PingerSenderActor {
 
 #[tokio::test]
 async fn test_actor_stops_when_last_mailbox_is_dropped() {
-    // quickwit_common::setup_logging_for_tests();
+    // crate::quickwit_common::setup_logging_for_tests();
     let universe = Universe::with_accelerated_time();
     let (ping_recv_mailbox, ping_recv_handle) =
         universe.spawn_builder().spawn(PingReceiverActor::default());
@@ -141,7 +141,7 @@ async fn test_actor_stops_when_last_mailbox_is_dropped() {
 
 #[tokio::test]
 async fn test_ping_actor() {
-    // quickwit_common::setup_logging_for_tests();
+    // crate::quickwit_common::setup_logging_for_tests();
     let universe = Universe::with_accelerated_time();
     let (ping_recv_mailbox, ping_recv_handle) =
         universe.spawn_builder().spawn(PingReceiverActor::default());
@@ -288,7 +288,7 @@ async fn test_timeouting_actor() {
 
 #[tokio::test]
 async fn test_pause_actor() {
-    // quickwit_common::setup_logging_for_tests();
+    // crate::quickwit_common::setup_logging_for_tests();
     let universe = Universe::with_accelerated_time();
     let (ping_mailbox, ping_handle) = universe.spawn_builder().spawn(PingReceiverActor::default());
     for _ in 0u32..1000u32 {
@@ -311,7 +311,7 @@ async fn test_pause_actor() {
 
 #[tokio::test]
 async fn test_actor_running_states() {
-    // quickwit_common::setup_logging_for_tests();
+    // crate::quickwit_common::setup_logging_for_tests();
     let universe = Universe::with_accelerated_time();
     let (ping_mailbox, ping_handle) = universe.spawn_builder().spawn(PingReceiverActor::default());
     assert!(ping_handle.state() == ActorState::Processing);
@@ -602,7 +602,7 @@ impl Handler<()> for TestActorWithDrain {
 
 #[tokio::test]
 async fn test_drain_is_called() {
-    // quickwit_common::setup_logging_for_tests();
+    // crate::quickwit_common::setup_logging_for_tests();
     let universe = Universe::with_accelerated_time();
     let test_actor_with_drain = TestActorWithDrain::default();
     let (mailbox, handle) = universe.spawn_builder().spawn(test_actor_with_drain);

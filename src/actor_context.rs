@@ -24,8 +24,8 @@ use std::ops::Deref;
 use std::sync::Arc;
 use std::time::Duration;
 
-use quickwit_common::metrics::IntCounter;
-use quickwit_common::{KillSwitch, Progress, ProtectedZoneGuard};
+use crate::quickwit_common::metrics::IntCounter;
+use crate::quickwit_common::{KillSwitch, Progress, ProtectedZoneGuard};
 use tokio::sync::{oneshot, watch};
 use tracing::{debug, error};
 
@@ -146,7 +146,9 @@ impl<A: Actor> ActorContext<A> {
 
     /// Executes a future in a protected zone.
     pub async fn protect_future<Fut, T>(&self, future: Fut) -> T
-    where Fut: Future<Output = T> {
+    where
+        Fut: Future<Output = T>,
+    {
         let _guard = self.protect_zone();
         future.await
     }

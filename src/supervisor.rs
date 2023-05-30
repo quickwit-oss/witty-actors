@@ -260,7 +260,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_supervisor_restart_on_panic() {
-        // quickwit_common::setup_logging_for_tests();
+        // crate::quickwit_common::setup_logging_for_tests();
         let universe = Universe::with_accelerated_time();
         let actor = FailingActor::default();
         let (mailbox, supervisor_handle) = universe.spawn_builder().supervise(actor);
@@ -390,7 +390,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_supervisor_forwards_kill_command() {
-        // quickwit_common::setup_logging_for_tests();
+        // crate::quickwit_common::setup_logging_for_tests();
         let universe = Universe::with_accelerated_time();
         let actor = FailingActor::default();
         let (mailbox, supervisor_handle) = universe.spawn_builder().supervise(actor);
@@ -412,7 +412,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_supervisor_exits_successfully_when_supervised_actor_mailbox_is_dropped() {
-        // quickwit_common::setup_logging_for_tests();
+        // crate::quickwit_common::setup_logging_for_tests();
         let universe = Universe::with_accelerated_time();
         let actor = FailingActor::default();
         let (_, supervisor_handle) = universe.spawn_builder().supervise(actor);

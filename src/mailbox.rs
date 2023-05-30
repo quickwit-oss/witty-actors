@@ -24,8 +24,8 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::{Arc, Weak};
 use std::time::Instant;
 
+use crate::quickwit_common::metrics::IntCounter;
 use async_trait::async_trait;
-use quickwit_common::metrics::IntCounter;
 use tokio::sync::oneshot;
 
 use crate::channel_with_priority::{Receiver, Sender, TrySendError};
@@ -424,7 +424,7 @@ pub(crate) fn create_mailbox<A: Actor>(
     let mailbox = Mailbox {
         inner: Arc::new(Inner {
             tx,
-            instance_id: quickwit_common::new_coolid(&actor_name),
+            instance_id: crate::quickwit_common::new_coolid(&actor_name),
             scheduler_client_opt,
         }),
         ref_count,

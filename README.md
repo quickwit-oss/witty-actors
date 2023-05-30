@@ -1,3 +1,7 @@
+Forked from https://github.com/quickwit-oss/quickwit/blob/83041f78a21072df091f6d945cc1b5859cf72326/quickwit/quickwit-common/ .
+
+Probably will be maintained in the future.
+
 # Quickwit actors
 
 Yet another actor crate for rust.
@@ -13,9 +17,9 @@ The API may change in the future.
 ## Non-objective
 
 - High number of message throughput. Most of message exchanged in quickwit
-are "large". For instance, it can hold a temp directory with gigabytes worth of data.
-The actor dealing with the highest number of messages are the indexer and sources.
-One message then typically holds a batch of records.
+  are "large". For instance, it can hold a temp directory with gigabytes worth of data.
+  The actor dealing with the highest number of messages are the indexer and sources.
+  One message then typically holds a batch of records.
 
 # Features
 
