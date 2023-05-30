@@ -1,36 +1,37 @@
 [package]
-name = "quickwit-actors"
-version = "0.6.0"
-authors = ["Quickwit, Inc. <hello@quickwit.io>"]
-edition = "2021"
-license = "MIT"
-description = "Actor framework used in quickwit"
-repository = "https://github.com/quickwit-oss/quickwit"
-homepage = "https://quickwit.io/"
-documentation = "https://quickwit.io/docs/"
+    name          = "quickwit-actors"
+    version       = "0.6.0"
+    authors       = ["Quickwit, Inc. <hello@quickwit.io>"]
+    edition       = "2021"
+    license       = "MIT"
+    description   = "Actor framework used in quickwit"
+    repository    = "https://github.com/quickwit-oss/quickwit"
+    homepage      = "https://quickwit.io/"
+    documentation = "https://quickwit.io/docs/"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-anyhow = { workspace = true }
-async-trait = { workspace = true }
-flume = { workspace = true }
-futures = { workspace = true }
-thiserror = { workspace = true }
-tokio = { workspace = true }
-tracing = { workspace = true }
-serde = { workspace = true }
-serde_json = { workspace = true }
-
-quickwit-common = { workspace = true }
-quickwit-proto = { workspace = true }
-
-[features]
-testsuite = []
+    anyhow      = "1.0.71"
+    async-trait = "0.1.68"
+    flume       = "0.10.14"
+    futures     = "0.3.28"
+    serde       = "1.0.163"
+    serde_json  = "1.0.96"
+    thiserror   = "1.0.40"
+    tokio       = "1.28.2"
+    tracing     = "0.1.37"
 
 [dev-dependencies]
-rand = { workspace = true }
-criterion = { workspace = true }
+    criterion = "0.5.1"
+    rand      = "0.8.5"
+
+
+    # quickwit-common = { workspace = true }
+    # quickwit-proto = { workspace = true }
+
+[features]
+    testsuite = []
+
 
 [[bench]]
-name = "bench"
-harness = false
+    name    = "bench"
+    harness = false
