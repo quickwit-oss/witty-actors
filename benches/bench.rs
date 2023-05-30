@@ -19,7 +19,7 @@
 
 use async_trait::async_trait;
 use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion};
-use quickwit_actors::{Actor, ActorContext, ActorExitStatus, Handler, Universe};
+use witty_actors::{Actor, ActorContext, ActorExitStatus, Handler, Universe};
 
 #[derive(Default)]
 struct DoNothingActor<const YIELD_AFTER_EACH_MESSAGE: bool>(u64);
@@ -87,7 +87,7 @@ async fn flume_bench_code(num_messages: usize) {
 
 async fn chan_with_priority_bench_code(num_messages: usize) {
     let (tx, rx) =
-        quickwit_actors::channel_with_priority::channel(quickwit_actors::QueueCapacity::Unbounded);
+        witty_actors::channel_with_priority::channel(witty_actors::QueueCapacity::Unbounded);
     for _ in 0..num_messages {
         tx.send_low_priority(AddMessage(1)).await.unwrap();
     }

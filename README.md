@@ -2,6 +2,8 @@ Forked from https://github.com/quickwit-oss/quickwit/blob/83041f78a21072df091f6d
 
 Probably will be maintained in the future.
 
+Docs: https://docs.rs/witty-actors
+
 # Quickwit actors
 
 Yet another actor crate for rust.

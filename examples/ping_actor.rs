@@ -20,8 +20,8 @@
 use std::time::Duration;
 
 use async_trait::async_trait;
-use quickwit_actors::{Actor, ActorContext, ActorExitStatus, Handler, Mailbox, Universe};
 use rand::prelude::IteratorRandom;
+use witty_actors::{Actor, ActorContext, ActorExitStatus, Handler, Mailbox, Universe};
 
 struct PingReceiver {
     name: &'static str,
