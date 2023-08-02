@@ -6,8 +6,6 @@ pub use kill_switch::KillSwitch;
 pub mod progress;
 pub use progress::{Progress, ProtectedZoneGuard};
 
-pub mod proto;
-
 use rand::{distributions::Alphanumeric, Rng};
 
 const ADJECTIVES: &[&str] = &[
