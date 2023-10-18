@@ -47,6 +47,8 @@ pub(crate) mod scheduler;
 mod spawn_builder;
 mod supervisor;
 
+mod runtime;
+
 pub use scheduler::{start_scheduler, SchedulerClient};
 
 #[cfg(test)]
@@ -68,6 +70,7 @@ pub use self::channel_with_priority::{QueueCapacity, RecvError, SendError, TrySe
 pub use self::mailbox::{Inbox, Mailbox};
 pub use self::registry::ActorObservation;
 pub use self::supervisor::{Supervisor, SupervisorState};
+pub use runtime::{RuntimeType, RuntimesConfig};
 
 /// Heartbeat used to verify that actors are progressing.
 ///

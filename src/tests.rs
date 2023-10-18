@@ -22,11 +22,12 @@ use std::time::Duration;
 
 use async_trait::async_trait;
 use serde::Serialize;
+use tokio::runtime::Handle;
 
 use crate::observation::ObservationType;
 use crate::{
     Actor, ActorContext, ActorExitStatus, ActorHandle, ActorState, Command, Handler, Health,
-    Mailbox, Observation, Supervisable, Universe,
+    Mailbox, Observation, RuntimeType, Supervisable, Universe,
 };
 
 // An actor that receives ping messages.
@@ -126,6 +127,33 @@ impl Handler<AddPeer> for PingerSenderActor {
         self.peers.insert(peer_id, peer);
         Ok(())
     }
+}
+
+#[tokio::test]
+async fn test_actor_with_blocking_runtime() {
+    #[derive(Debug)]
+    pub struct PongActor;
+
+    impl Actor for PongActor {
+        type ObservableState = ();
+
+        fn name(&self) -> String {
+            "Pong".to_string()
+        }
+
+        fn runtime_handle(&self) -> Handle {
+            RuntimeType::Blocking.get_runtime_handle()
+        }
+
+        fn observable_state(&self) -> Self::ObservableState {}
+    }
+
+    // crate::quickwit_common::setup_logging_for_tests();
+    let universe = Universe::with_accelerated_time();
+    let (_, handle) = universe.spawn_builder().spawn(PongActor);
+    let (exit_status, _) = handle.join().await;
+
+    assert!(exit_status.is_success());
 }
 
 #[tokio::test]
