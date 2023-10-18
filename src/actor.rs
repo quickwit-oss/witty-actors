@@ -122,7 +122,7 @@ pub trait Actor: Send + Sync + Sized + 'static {
     /// of execution of the Actor.
     ///
     /// Actor with a handler that may block for more than 50 microseconds
-    /// should use the `ActorRunner::DedicatedThread`.
+    /// should use the [`RuntimeType::get_runtime_handle`].
     fn runtime_handle(&self) -> tokio::runtime::Handle {
         tokio::runtime::Handle::current()
     }

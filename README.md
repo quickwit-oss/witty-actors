@@ -26,7 +26,7 @@ The API may change in the future.
 # Features
 
 - Actor message box
-- The framework is meant to run asynchronous actors by default, but it can also run actors that are blocking for long amount of time. The message handler methods are technically asynchronous in both case, but the `Actor::runner` method makes it possible to run an actor with blocking code on a dedicated thread.
+- The framework is meant to run asynchronous actors by default, but it can also run actors that are blocking for long amount of time. The message handler methods are technically asynchronous in both case, but the `RuntimeType::get_runtime_handle` method makes it possible to run an actor with blocking code on a dedicated thread.
 - A scheduler actor that makes it possible to mock simulate time.
 
 # Example

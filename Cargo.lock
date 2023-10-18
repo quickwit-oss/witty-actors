@@ -1176,6 +1176,8 @@ dependencies = [
  "flume",
  "futures",
  "http",
+ "num_cpus",
+ "once_cell",
  "prometheus",
  "rand",
  "serde",
